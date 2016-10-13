@@ -14,10 +14,16 @@
 	<context:component-scan base-package="org.agtsys.controller"/>
     <!--使用注解配置  -->
 	 <mvc:annotation-driven></mvc:annotation-driven>   
-	 
+	  <!--静态资源访问设置  location是真实路径   mapping是虚拟路径 
+   <mvc:resources location="/css/" mapping="/css/**"/>
+   <mvc:resources location="/images/" mapping="/images/**"/> -->
 	 <!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>  
+	<!--图像 验证码been  -->
+	<bean class="org.agtsys.util.DefaultImageCaptchca"></bean>
+	<!--扫描组件   一次性配置service-->
+	    <context:component-scan base-package="org.agtsys.service"></context:component-scan>
 </beans>
